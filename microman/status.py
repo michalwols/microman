@@ -1,0 +1,9 @@
+import enum
+
+
+class Status(enum.Enum):
+  SCHEDULED = 'SCHEDULED'
+  RUNNING = 'RUNNING'
+  COMPLETED = 'COMPLETED'
+  FAILED = 'FAILED'
+  SKIPPED = 'SKIPPED'
