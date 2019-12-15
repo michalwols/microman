@@ -34,17 +34,41 @@ It:
 
 # Getting started
 
+
+## Install
+
 ```commandline
 pip install microman
 ```
 
-
+### Define your tasks
 
 ```python
 from microman import task
+import random
 
 
 @task
-def train_model():
-  pass
+def estimate_story_points(story):
+  return random.randint(1, 12)
+
+
+estimate_story_points()
+```
+
+### Schedule you work
+
+```python
+
+@task(schedule='daily', start='2019')
+def have_meeting():
+  stories = plan_stories()
+  for story in stories:
+    estimate_story_points(story)
+```
+
+### Run scheduled tasks
+
+```commandline
+microman run scheduled
 ```
